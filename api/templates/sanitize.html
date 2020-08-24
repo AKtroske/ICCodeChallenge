@@ -1,0 +1,23 @@
+
+<!doctype html>
+<html>
+    <head>
+        <title>Input Testing</title>
+    </head>
+    <body>
+        <h4>Hello, enter some test input below to see if you're sanitized!</h4>
+        <form action="" method="post" novalidate>
+          {{ form.hidden_tag() }}
+          <p>
+            <label>Input (40 char max):</label><br />
+            {{ form.payload(size=32) }}
+          </p>
+           <p>{{ form.submit() }}</p>
+           {% if result %}
+           <div>
+               <h4>Result: {{ result }}</h4>
+           </div>
+           {% endif %}
+         </form>
+    </body>
+</html>
