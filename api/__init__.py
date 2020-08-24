@@ -21,7 +21,7 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    from . import api
-    app.register_blueprint(api.bp)
+    from api import sanitize
+    app.register_blueprint(sanitize.bp)
 
     return app

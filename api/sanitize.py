@@ -1,7 +1,6 @@
 import re
 from flask import Flask, jsonify, request, render_template, Blueprint
 
-
 from .payloadForm import PayloadForm
 
 bp = Blueprint('api', __name__, url_prefix='/')
@@ -29,7 +28,7 @@ def sanitize(input=None):
             input = input["payload"]
 
         # Pattern matches common SQL phrases, any inline or block comment in sql
-        pattern = '/[\t\r\n]|(--[^\r\n]*)|(\/\*[\w\W]*?(?=\*)\*\/)|SELECT|UPDATE|DELETE|INSERT/'
+        pattern = '/[\t\r\n]|(--[^\r\n]*)|(\/\*[\w\W]*?(?=\*)\*\/)|SELECT|UPDATE|DROP|DELETE|INSERT/'
         matches = re.findall(pattern, input)
 
         if len(matches) == 0:
